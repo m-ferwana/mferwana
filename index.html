@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>محمد أسعد فروانة — مصمم جرافيك | إعلانات وسوشيال ميديا</title>
+<meta name="description" content="محمد أسعد فروانة، مصمم جرافيك متخصص في تصميم الإعلانات ومحتوى منصات التواصل الاجتماعي والمطبوعات.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#07080a;
+    --bg-alt:#0b0f0c;
+    --surface:#12140f;
+    --surface-2:#161a12;
+    --line: rgba(255,255,255,.09);
+    --line-soft: rgba(255,255,255,.05);
+    --primary:#65fe08;
+    --secondary:#16bc4e;
+    --white:#ffffff;
+    --ink:#f4f6f2;
+    --ink-muted:#a7b0a5;
+    --ink-dim:#6d766c;
+    --radius:18px;
+    --wrap: 1180px;
+    --ease: cubic-bezier(.16,.84,.44,1);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Tajawal', sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--primary);color:#06110a;}
+
+  h1,h2,h3,h4{
+    font-family:'Cairo', sans-serif;
+    font-weight:800;
+    line-height:1.25;
+    letter-spacing:-.01em;
+  }
+
+  .mono{
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:.02em;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  ul{list-style:none;}
+  button{font-family:inherit; cursor:pointer;}
+
+  .wrap{
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  section{position:relative;}
+
+  /* ---------- utility: eyebrow / spec label ---------- */
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--primary);
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px;height:7px;
+    background:var(--primary);
+    border-radius:2px;
+    flex:none;
+    box-shadow:0 0 12px var(--primary);
+  }
+  .eyebrow .hex{ color:var(--ink-dim); }
+
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head h2{
+    font-size:clamp(30px,4.2vw,46px);
+    color:var(--white);
+  }
+  .section-head p{
+    margin-top:16px;
+    color:var(--ink-muted);
+    font-size:17px;
+    max-width:56ch;
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  [data-reveal]{
+    opacity:0;
+    transform:translateY(26px);
+    transition:opacity .8s var(--ease), transform .8s var(--ease);
+  }
+  [data-reveal].is-visible{opacity:1; transform:none;}
+
+  /* ================= NAV ================= */
+  header.site-nav{
+    position:fixed;
+    top:0; right:0; left:0;
+    z-index:100;
+    background:rgba(7,8,10,.72);
+    backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid var(--line-soft);
+    transition:background .3s ease;
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 28px;
+    max-width:var(--wrap);
+    margin:0 auto;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand img{
+    height:34px;
+    width:auto;
+    border-radius:6px;
+  }
+  .brand .brand-text{
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    font-size:15px;
+    color:var(--white);
+    display:flex;
+    flex-direction:column;
+    line-height:1.3;
+  }
+  .brand .brand-text small{
+    font-family:'JetBrains Mono',monospace;
+    font-weight:400;
+    font-size:10.5px;
+    color:var(--ink-dim);
+    letter-spacing:.08em;
+  }
+
+  nav.links{
+    display:flex;
+    align-items:center;
+    gap:30px;
+  }
+  nav.links a{
+    font-size:14.5px;
+    color:var(--ink-muted);
+    position:relative;
+    padding:6px 0;
+    transition:color .25s ease;
+  }
+  nav.links a:hover{color:var(--white);}
+  nav.links a::after{
+    content:"";
+    position:absolute;
+    bottom:0; right:0;
+    width:0; height:1.5px;
+    background:var(--primary);
+    transition:width .3s var(--ease);
+  }
+  nav.links a:hover::after{width:100%;}
+
+  .nav-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--primary);
+    color:#06120a;
+    font-weight:700;
+    font-size:14px;
+    padding:10px 20px;
+    border-radius:999px;
+    transition:transform .25s var(--ease), box-shadow .25s ease;
+  }
+  .nav-cta:hover{transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(101,254,8,.55);}
+
+  .burger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    padding:6px;
+  }
+  .burger span{width:22px;height:2px;background:var(--white);display:block;transition:.3s;}
+
+  .mobile-menu{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:99;
+    background:var(--bg);
+    padding:100px 28px 40px;
+    flex-direction:column;
+    gap:6px;
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{
+    font-family:'Cairo',sans-serif;
+    font-size:24px;
+    font-weight:700;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+    color:var(--white);
+  }
+  .mobile-menu .nav-cta{margin-top:24px; justify-content:center;}
+
+  /* ================= HERO ================= */
+  .hero{
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    padding:150px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-glow{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+  }
+  .hero-glow svg{width:100%;height:100%;}
+
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:60px;
+    align-items:center;
+  }
+
+  .hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--line);
+    padding:8px 16px 8px 8px;
+    border-radius:999px;
+    margin-bottom:28px;
+  }
+  .hero-badge img{height:26px;width:26px;border-radius:50%;object-fit:cover;}
+  .hero-badge span{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--ink-muted); letter-spacing:.03em;}
+  .hero-badge b{color:var(--primary); font-weight:600;}
+
+  .hero h1{
+    font-size:clamp(38px,5.6vw,66px);
+    color:var(--white);
+    margin-bottom:26px;
+  }
+  .hero h1 .accent{
+    color:var(--primary);
+    position:relative;
+    white-space:nowrap;
+  }
+  .hero p.lead{
+    font-size:18.5px;
+    color:var(--ink-muted);
+    max-width:52ch;
+    margin-bottom:38px;
+  }
+  .btn-row{display:flex; flex-wrap:wrap; gap:16px;}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 28px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:15px;
+    transition:transform .3s var(--ease), box-shadow .3s ease, background .3s ease, color .3s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:var(--primary);
+    color:#06120a;
+  }
+  .btn-primary:hover{transform:translateY(-3px); box-shadow:0 16px 34px -10px rgba(101,254,8,.5);}
+  .btn-ghost{
+    background:transparent;
+    border-color:var(--line);
+    color:var(--white);
+  }
+  .btn-ghost:hover{border-color:var(--primary); color:var(--primary); transform:translateY(-3px);}
+  .btn svg{width:16px;height:16px; flex:none;}
+
+  .hero-stats{
+    display:flex;
+    gap:36px;
+    margin-top:56px;
+    flex-wrap:wrap;
+  }
+  .hero-stats div{display:flex; flex-direction:column; gap:4px;}
+  .hero-stats b{font-family:'Cairo',sans-serif; font-size:28px; color:var(--white);}
+  .hero-stats span{font-size:13px; color:var(--ink-dim); font-family:'JetBrains Mono',monospace;}
+
+  .hero-visual{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-card{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:26px;
+    padding:46px 30px;
+    width:100%;
+    max-width:340px;
+    text-align:center;
+    box-shadow:0 40px 90px -30px rgba(0,0,0,.7);
+  }
+  .hero-card img{width:150px; margin:0 auto 18px; filter:drop-shadow(0 10px 30px rgba(101,254,8,.25));}
+  .hero-card .tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    color:var(--ink-dim);
+    letter-spacing:.08em;
+  }
+  .hero-card .swatches{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    margin-top:22px;
+  }
+  .swatch{width:26px;height:26px;border-radius:8px;border:1px solid var(--line);}
+
+  .hero-float{
+    position:absolute;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px 16px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:var(--ink-muted);
+    box-shadow:0 20px 40px -20px rgba(0,0,0,.6);
+    animation:float 6s ease-in-out infinite;
+  }
+  .hero-float.f1{top:-6%; right:-8%;}
+  .hero-float.f2{bottom:-4%; left:-10%; animation-delay:-3s;}
+  .hero-float b{color:var(--primary);}
+  @keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+  }
+
+  /* ================= ABOUT ================= */
+  .about{
+    background:var(--bg-alt);
+    padding:130px 0;
+    border-top:1px solid var(--line-soft);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:70px;
+    align-items:start;
+  }
+  .about-copy p{
+    color:var(--ink-muted);
+    font-size:16.5px;
+    margin-bottom:20px;
+  }
+  .about-copy p:first-child{
+    color:var(--ink);
+    font-size:19px;
+  }
+  .tools{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:28px;
+  }
+  .tool-pill{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    padding:8px 14px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--ink-muted);
+  }
+  .stat-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .stat-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:26px 22px;
+  }
+  .stat-card b{
+    display:block;
+    font-family:'Cairo',sans-serif;
+    font-size:34px;
+    color:var(--primary);
+    margin-bottom:6px;
+  }
+  .stat-card span{font-size:13.5px; color:var(--ink-dim);}
+  .stat-card.wide{grid-column:1/-1; display:flex; align-items:center; justify-content:space-between; gap:20px;}
+  .stat-card.wide p{font-size:14.5px; color:var(--ink-muted); margin:0;}
+
+  /* ================= SERVICES ================= */
+  .services{padding:130px 0;}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  .service-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px 26px 28px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    transition:border-color .3s ease, transform .35s var(--ease), background .3s ease;
+  }
+  .service-card:hover{
+    border-color:rgba(101,254,8,.4);
+    transform:translateY(-6px);
+    background:var(--surface-2);
+  }
+  .service-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:var(--ink-dim);
+  }
+  .service-card h3{
+    font-size:19.5px;
+    color:var(--white);
+  }
+  .service-card p{
+    color:var(--ink-muted);
+    font-size:14.5px;
+    flex:1;
+  }
+
+  /* ribbon price tag — signature element */
+  .price-tag{
+    display:inline-flex;
+    flex-direction:column;
+    align-self:flex-start;
+    margin-top:4px;
+  }
+  .price-tag .p-label{
+    background:var(--secondary);
+    color:#06170c;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.08em;
+    padding:5px 16px 5px 12px;
+    clip-path:polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+    align-self:flex-start;
+  }
+  .price-tag .p-amount{
+    background:var(--primary);
+    color:#06170c;
+    font-family:'Cairo',sans-serif;
+    font-weight:800;
+    font-size:17px;
+    padding:8px 20px 8px 16px;
+    clip-path:polygon(0 0, 96% 0, 100% 100%, 0% 100%);
+    margin-top:-1px;
+  }
+
+  .services-note{
+    margin-top:34px;
+    font-size:13.5px;
+    color:var(--ink-dim);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  /* ================= PORTFOLIO ================= */
+  .portfolio{
+    background:var(--bg-alt);
+    padding:130px 0;
+    border-top:1px solid var(--line-soft);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .filter-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:44px;
+  }
+  .filter-btn{
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--ink-muted);
+    padding:9px 20px;
+    border-radius:999px;
+    font-size:13.5px;
+    font-family:'Tajawal',sans-serif;
+    font-weight:500;
+    transition:.25s ease;
+  }
+  .filter-btn.active, .filter-btn:hover{
+    background:var(--primary);
+    border-color:var(--primary);
+    color:#06120a;
+  }
+
+  .work-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  .work-card{
+    position:relative;
+    border-radius:var(--radius);
+    overflow:hidden;
+    aspect-ratio:4/5;
+    background:var(--surface);
+    border:1px solid var(--line);
+    cursor:pointer;
+  }
+  .work-card img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .6s var(--ease);
+  }
+  .work-card:hover img{transform:scale(1.06);}
+  .work-overlay{
+    position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(6,8,6,.94) 0%, rgba(6,8,6,.35) 45%, rgba(6,8,6,0) 70%);
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:24px;
+    opacity:0;
+    transition:opacity .35s ease;
+  }
+  .work-card:hover .work-overlay{opacity:1;}
+  .work-overlay .wcat{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--primary);
+    margin-bottom:6px;
+    letter-spacing:.06em;
+  }
+  .work-overlay h4{
+    font-family:'Cairo',sans-serif;
+    font-size:17px;
+    color:var(--white);
+    margin-bottom:6px;
+  }
+  .work-overlay p{
+    font-size:13px;
+    color:var(--ink-muted);
+  }
+  .work-card[hidden]{display:none;}
+
+  /* ================= WHY ================= */
+  .why{padding:130px 0;}
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .why-card{
+    background:var(--bg);
+    padding:34px 22px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    transition:background .3s ease;
+  }
+  .why-card:hover{background:var(--surface);}
+  .why-ico{
+    width:42px;height:42px;
+    border-radius:11px;
+    background:rgba(101,254,8,.1);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--primary);
+  }
+  .why-ico svg{width:20px;height:20px;}
+  .why-card h4{font-size:16px; color:var(--white);}
+  .why-card p{font-size:13.5px; color:var(--ink-muted);}
+
+  /* ================= PROCESS ================= */
+  .process{
+    background:var(--bg-alt);
+    padding:130px 0;
+    border-top:1px solid var(--line-soft);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .process-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .process-item{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:32px;
+    padding:34px 0;
+    border-top:1px solid var(--line);
+    align-items:start;
+  }
+  .process-item:last-child{border-bottom:1px solid var(--line);}
+  .process-num{
+    font-family:'JetBrains Mono',monospace;
+    font-size:15px;
+    color:var(--primary);
+    padding-top:4px;
+  }
+  .process-item h3{
+    font-size:21px;
+    color:var(--white);
+    margin-bottom:8px;
+  }
+  .process-item p{
+    color:var(--ink-muted);
+    max-width:56ch;
+    font-size:15px;
+  }
+
+  /* ================= TESTIMONIALS (empty state) ================= */
+  .testimonials{padding:130px 0;}
+  .testi-empty{
+    border:1px dashed var(--line);
+    border-radius:var(--radius);
+    padding:70px 40px;
+    text-align:center;
+    max-width:640px;
+    margin:0 auto;
+  }
+  .testi-empty .mono-badge{
+    display:inline-block;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    color:var(--ink-dim);
+    border:1px solid var(--line);
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:22px;
+  }
+  .testi-empty h3{
+    font-size:22px;
+    color:var(--white);
+    margin-bottom:12px;
+  }
+  .testi-empty p{
+    color:var(--ink-muted);
+    font-size:15px;
+    max-width:44ch;
+    margin:0 auto 26px;
+  }
+
+  /* ================= CONTACT ================= */
+  .contact{
+    background:var(--bg-alt);
+    padding:130px 0 90px;
+    border-top:1px solid var(--line-soft);
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:60px;
+  }
+  .contact-copy h2{
+    font-size:clamp(30px,4.2vw,44px);
+    color:var(--white);
+    margin-bottom:18px;
+  }
+  .contact-copy p{
+    color:var(--ink-muted);
+    font-size:17px;
+    max-width:50ch;
+    margin-bottom:34px;
+  }
+  .contact-actions{display:flex; flex-wrap:wrap; gap:16px;}
+
+  .contact-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:34px;
+  }
+  .contact-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:16px 0;
+    border-top:1px solid var(--line);
+  }
+  .contact-row:first-child{border-top:none; padding-top:0;}
+  .contact-row .ico{
+    width:38px;height:38px;
+    border-radius:10px;
+    background:rgba(101,254,8,.1);
+    color:var(--primary);
+    display:flex; align-items:center; justify-content:center;
+    flex:none;
+  }
+  .contact-row .ico svg{width:17px;height:17px;}
+  .contact-row .txt{display:flex; flex-direction:column; gap:2px;}
+  .contact-row .txt span{font-size:12px; color:var(--ink-dim); font-family:'JetBrains Mono',monospace;}
+  .contact-row .txt a, .contact-row .txt strong{font-size:14.5px; color:var(--white); font-weight:500;}
+  .contact-row .txt a:hover{color:var(--primary);}
+
+  .social-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:26px;
+  }
+  .social-chip{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid var(--line);
+    padding:9px 15px;
+    border-radius:999px;
+    font-size:13px;
+    color:var(--ink-muted);
+    transition:.25s ease;
+  }
+  .social-chip svg{width:15px;height:15px;}
+  .social-chip:hover{border-color:var(--primary); color:var(--primary); transform:translateY(-2px);}
+
+  /* ================= FOOTER ================= */
+  footer{
+    padding:44px 0;
+    border-top:1px solid var(--line-soft);
+  }
+  .footer-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:18px;
+  }
+  .footer-inner .brand{opacity:.9;}
+  footer .fmeta{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:var(--ink-dim);
+    text-align:left;
+  }
+
+  /* whatsapp floating button */
+  .wa-float{
+    position:fixed;
+    bottom:26px;
+    left:26px;
+    z-index:90;
+    width:56px;height:56px;
+    background:var(--primary);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 14px 30px -8px rgba(101,254,8,.6);
+    transition:transform .3s var(--ease);
+  }
+  .wa-float:hover{transform:scale(1.08);}
+  .wa-float svg{width:26px;height:26px; color:#06120a;}
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--primary);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width:980px){
+    nav.links, .nav-cta{display:none;}
+    .burger{display:flex;}
+    .hero-inner{grid-template-columns:1fr; text-align:center;}
+    .hero p.lead{margin-inline:auto;}
+    .btn-row{justify-content:center;}
+    .hero-stats{justify-content:center;}
+    .hero-visual{margin-top:20px;}
+    .about-grid{grid-template-columns:1fr; gap:50px;}
+    .service-grid{grid-template-columns:repeat(2,1fr);}
+    .work-grid{grid-template-columns:repeat(2,1fr);}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .contact-grid{grid-template-columns:1fr;}
+    .process-item{grid-template-columns:60px 1fr;}
+  }
+  @media (max-width:620px){
+    .wrap{padding:0 20px;}
+    .service-grid{grid-template-columns:1fr;}
+    .work-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .hero{padding-top:130px;}
+    .section-head{margin-bottom:40px;}
+    .about, .services, .portfolio, .why, .process, .testimonials, .contact{padding:90px 0;}
+    .footer-inner{flex-direction:column; text-align:center;}
+    footer .fmeta{text-align:center;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+    [data-reveal]{opacity:1; transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <img src="assets/logo.jpg" alt="شعار محمد فروانة">
+    </a>
+    <nav class="links">
+      <a href="#top">الرئيسية</a>
+      <a href="#about">من أنا</a>
+      <a href="#services">خدماتي</a>
+      <a href="#work">أعمالي</a>
+      <a href="#why">لماذا أنا؟</a>
+      <a href="#process">آلية العمل</a>
+      <a href="#testimonials">آراء العملاء</a>
+      <a href="#contact">تواصل معي</a>
+    </nav>
+    <a href="https://wa.me/972594303949" target="_blank" rel="noopener" class="nav-cta">اطلب تصميمًا</a>
+    <button class="burger" id="burger" aria-label="فتح القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#top">الرئيسية</a>
+    <a href="#about">من أنا</a>
+    <a href="#services">خدماتي</a>
+    <a href="#work">أعمالي</a>
+    <a href="#why">لماذا أنا؟</a>
+    <a href="#process">آلية العمل</a>
+    <a href="#testimonials">آراء العملاء</a>
+    <a href="#contact">تواصل معي</a>
+    <a href="https://wa.me/972594303949" target="_blank" rel="noopener" class="nav-cta">اطلب تصميمًا</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-glow" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <radialGradient id="g1" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#65fe08" stop-opacity="0.16"/>
+          <stop offset="100%" stop-color="#65fe08" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="g2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#16bc4e" stop-opacity="0.14"/>
+          <stop offset="100%" stop-color="#16bc4e" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle cx="980" cy="120" r="380" fill="url(#g1)"/>
+      <circle cx="120" cy="700" r="340" fill="url(#g2)"/>
+      <path d="M-100,420 C150,300 300,540 600,400 C900,260 1000,480 1300,360" stroke="#65fe08" stroke-opacity="0.12" stroke-width="2" fill="none"/>
+      <path d="M-100,470 C180,380 340,580 620,460 C900,340 1020,540 1300,430" stroke="#16bc4e" stroke-opacity="0.14" stroke-width="1.5" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="wrap hero-inner">
+    <div data-reveal>
+      <div class="hero-badge">
+        <img src="assets/mark.jpg" alt="">
+        <span>متاح لمشاريع جديدة <b>· أرد خلال ساعات</b></span>
+      </div>
+      <h1>محمد أسعد فروانة<br>مصمم <span class="accent">جرافيك</span> للإعلانات والسوشيال ميديا</h1>
+      <p class="lead">أصمم محتوى بصري يساعد الشركات وصنّاع المحتوى على الظهور بشكل احترافي، وبناء هوية بصرية متناسقة على منصات التواصل الاجتماعي.</p>
+      <div class="btn-row">
+        <a href="#work" class="btn btn-primary">
+          شاهد أعمالي
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M14 5l-7 7 7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost">اطلب تصميمًا</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>+5</b><span>سنوات خبرة</span></div>
+        <div><b>+500</b><span>تصميم منجز</span></div>
+        <div><b>2019</b><span>بداية المسيرة المهنية</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual" data-reveal>
+      <div class="hero-card">
+        <img src="assets/mark.jpg" alt="شعار محمد فروانة">
+        <div class="tag mono">GRAPHIC DESIGNER — PALESTINE</div>
+        <div class="swatches">
+          <div class="swatch" style="background:#65fe08"></div>
+          <div class="swatch" style="background:#16bc4e"></div>
+          <div class="swatch" style="background:#ffffff"></div>
+          <div class="swatch" style="background:#000000;border-color:rgba(255,255,255,.2)"></div>
+        </div>
+      </div>
+      <div class="hero-float f1 mono">تصميم Carousel<br><b>30$ / 5 شرائح</b></div>
+      <div class="hero-float f2 mono">حملة إعلانية كاملة<br><b>تبدأ من 75$</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div data-reveal>
+        <span class="eyebrow"><span class="hex">01</span> / من أنا</span>
+        <h2 style="font-size:clamp(28px,3.6vw,38px); color:var(--white); margin-bottom:0;">تصميم يخدم رسالة مشروعك، مش بس شكله</h2>
+      </div>
+      <div class="about-copy" data-reveal>
+        <p>أنا محمد أسعد فروانة، مصمم جرافيك متخصص في تصميم الإعلانات ومحتوى منصات التواصل الاجتماعي والمطبوعات، بخبرة تزيد عن 5 سنوات في مجال التصميم والعمل الحر.</p>
+        <p>تخرجت عام 2019 من الكلية الجامعية للعلوم التطبيقية بتخصص وسائط متعددة وتطوير ويب، ومنذ ذلك الوقت عملت على مجموعة متنوعة من المشاريع مع عملاء وشركات وصنّاع محتوى من دول عربية وأجنبية.</p>
+        <p>أركز في عملي على تقديم تصاميم تجمع بين الفكرة الواضحة، التكوين البصري، والهدف التسويقي، بحيث لا يكون التصميم مجرد صورة جميلة، بل أداة تساعد المشروع على إيصال رسالته وجذب جمهوره.</p>
+
+        <div class="tools">
+          <span class="tool-pill">Adobe Photoshop</span>
+          <span class="tool-pill">Adobe Illustrator</span>
+          <span class="tool-pill">Adobe InDesign</span>
+          <span class="tool-pill">Social Media Design</span>
+        </div>
+
+        <div class="stat-grid" style="margin-top:32px;">
+          <div class="stat-card"><b>+5</b><span>سنوات خبرة عملية</span></div>
+          <div class="stat-card"><b>+500</b><span>تصميم لمجالات مختلفة</span></div>
+          <div class="stat-card wide">
+            <p>هوية بصرية بألوان مخصصة، خط عربي متماسك، وتصميم مبني على هدف تسويقي واضح — في كل مشروع.</p>
+            <span class="mono" style="color:var(--primary); font-size:12px; white-space:nowrap;">#65FE08</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><span class="hex">02</span> / خدماتي</span>
+      <h2>خدمات تصميم جاهزة لمنصاتك</h2>
+      <p>من منشور واحد لسوشيال ميديا لحد حملة إعلانية متكاملة — كل خدمة مبنية على هدف واضح وسعر محدد من البداية.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-card" data-reveal>
+        <span class="service-num mono">01</span>
+        <h3>منشورات السوشيال ميديا</h3>
+        <p>تصميم منشورات احترافية لمنصات التواصل الاجتماعي بما يتناسب مع هوية العلامة التجارية وأهداف المحتوى.</p>
+        <div class="price-tag"><span class="p-label mono">السعر</span><span class="p-amount">15$ / تصميم</span></div>
+      </div>
+
+      <div class="service-card" data-reveal>
+        <span class="service-num mono">02</span>
+        <h3>الإعلانات الرقمية</h3>
+        <p>تصميم إعلانات بصرية مخصصة للحملات الإعلانية على Facebook وInstagram والمنصات الرقمية.</p>
+        <div class="price-tag"><span class="p-label mono">السعر</span><span class="p-amount">20$ / تصميم</span></div>
+      </div>
+
+      <div class="service-card" data-reveal>
+        <span class="service-num mono">03</span>
+        <h3>Instagram Stories</h3>
+        <p>تصميم قصص إعلانية وترويجية جذابة ومتناسقة مع الهوية البصرية للحساب.</p>
+        <div class="price-tag"><span class="p-label mono">السعر</span><span class="p-amount">12$ / تصميم</span></div>
+      </div>
+
+      <div class="service-card" data-reveal>
+        <span class="service-num mono">04</span>
+        <h3>تصميم Carousel</h3>
+        <p>منشورات متعددة الشرائح لعرض المعلومات أو الخدمات أو المحتوى التعليمي بطريقة منظمة وجذابة.</p>
+        <div class="price-tag"><span class="p-label mono">السعر</span><span class="p-amount">30$ / 5 شرائح</span></div>
+      </div>
+
+      <div class="service-card" data-reveal>
+        <span class="service-num mono">05</span>
+        <h3>التصميمات الترويجية</h3>
+        <p>مواد بصرية للعروض والخصومات وإطلاق المنتجات والخدمات والحملات التسويقية.</p>
+        <div class="price-tag"><span class="p-label mono">السعر</span><span class="p-amount">20$ / تصميم</span></div>
+      </div>
+
+      <div class="service-card" data-reveal>
+        <span class="service-num mono">06</span>
+        <h3>الحملات الإعلانية</h3>
+        <p>مجموعة تصميمات متكاملة لحملة إعلانية مع الحفاظ على وحدة الأسلوب البصري بين جميع المواد.</p>
+        <div class="price-tag"><span class="p-label mono">يبدأ من</span><span class="p-amount">75$ / حملة</span></div>
+      </div>
+
+      <div class="service-card" data-reveal>
+        <span class="service-num mono">07</span>
+        <h3>تصميم المطبوعات</h3>
+        <p>تصميم البروشورات، الفلايرات، البوسترات، الكتيبات والمواد التسويقية المطبوعة.</p>
+        <div class="price-tag"><span class="p-label mono">يبدأ من</span><span class="p-amount">25$ / تصميم</span></div>
+      </div>
+    </div>
+
+    <p class="services-note">◈ الأسعار قابلة للتغيير حسب حجم المشروع وعدد التصاميم ودرجة التعقيد.</p>
+  </div>
+</section>
+
+<!-- ============ PORTFOLIO ============ -->
+<section class="portfolio" id="work">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><span class="hex">03</span> / أعمالي</span>
+      <h2>مجموعة مختارة من مشاريعي</h2>
+      <p>عيّنات من أعمال حقيقية في الإعلانات، السوشيال ميديا والحملات الترويجية.</p>
+    </div>
+
+    <div class="filter-row" id="filterRow">
+      <button class="filter-btn active" data-filter="الكل">الكل</button>
+      <button class="filter-btn" data-filter="اعلانات">إعلانات</button>
+      <button class="filter-btn" data-filter="social">Social Media</button>
+      <button class="filter-btn" data-filter="حملات">حملات إعلانية</button>
+    </div>
+
+    <div class="work-grid" id="workGrid">
+      <div class="work-card" data-reveal data-cat="اعلانات social">
+        <img src="assets/work-1.jpg" alt="تصميم إعلان سبونسر انستغرام">
+        <div class="work-overlay">
+          <span class="wcat mono">SOCIAL MEDIA AD</span>
+          <h4>عرض سبونسر انستغرام</h4>
+          <p>تصميم إعلاني بأسلوب بصري جريء لعرض خدمة سبونسر انستغرام لمدة 30 يوم.</p>
+        </div>
+      </div>
+
+      <div class="work-card" data-reveal data-cat="اعلانات">
+        <img src="assets/work-2.jpg" alt="تصميم إعلان عقد تصوير فوتوغرافي">
+        <div class="work-overlay">
+          <span class="wcat mono">ADVERTISING</span>
+          <h4>عقد تصوير فوتوغرافي</h4>
+          <p>تصميم إعلاني لخدمة تصوير احترافية بلمسة بصرية داكنة تبرز تفاصيل المنتج.</p>
+        </div>
+      </div>
+
+      <div class="work-card" data-reveal data-cat="اعلانات حملات">
+        <img src="assets/work-3.jpg" alt="تصميم إعلان عرض سياحي دبي">
+        <div class="work-overlay">
+          <span class="wcat mono">CAMPAIGN</span>
+          <h4>عرض سياحي — دبي</h4>
+          <p>تصميم ترويجي لعرض سياحي متكامل يجمع بين الفخامة والوضوح في عرض التفاصيل.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><span class="hex">04</span> / لماذا أنا؟</span>
+      <h2>خمس أسباب يشتغل معي عملائي من جديد</h2>
+    </div>
+
+    <div class="why-grid" data-reveal>
+      <div class="why-card">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h4>خبرة +5 سنوات</h4>
+        <p>خبرة عملية في مجال التصميم والعمل الحر منذ سنوات.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16M4 15l4-5 3 3 5-7 4 6"/></svg></div>
+        <h4>أكثر من 500 تصميم</h4>
+        <p>خبرة في تنفيذ عدد كبير من المشاريع والتصاميم لمجالات مختلفة.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l7 7L21 5"/></svg></div>
+        <h4>فهم تسويقي</h4>
+        <p>لا أركز فقط على الجانب الجمالي، بل أراعي الهدف من التصميم والجمهور المستهدف.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+        <h4>تصميم مخصص</h4>
+        <p>كل تصميم يتم بناءه وفق طبيعة المشروع والرسالة التي يريد إيصالها.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12l3 3 5-6"/></svg></div>
+        <h4>التزام وجودة</h4>
+        <p>أحرص على تقديم تصاميم احترافية ومنظمة وقابلة للاستخدام على المنصات المطلوبة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><span class="hex">05</span> / آلية العمل</span>
+      <h2>من الفكرة للتسليم في خمس خطوات</h2>
+    </div>
+
+    <div class="process-list" data-reveal>
+      <div class="process-item">
+        <span class="process-num mono">01</span>
+        <div><h3>فهم المشروع</h3><p>أتعرف على نشاطك، جمهورك والهدف المطلوب من التصميم.</p></div>
+      </div>
+      <div class="process-item">
+        <span class="process-num mono">02</span>
+        <div><h3>التخطيط</h3><p>أحدد الاتجاه البصري المناسب وأرتب عناصر التصميم.</p></div>
+      </div>
+      <div class="process-item">
+        <span class="process-num mono">03</span>
+        <div><h3>التصميم</h3><p>أحوّل الفكرة إلى تصميم احترافي متوافق مع احتياجات المشروع.</p></div>
+      </div>
+      <div class="process-item">
+        <span class="process-num mono">04</span>
+        <div><h3>المراجعة</h3><p>أستقبل ملاحظاتك وأجري التعديلات المطلوبة.</p></div>
+      </div>
+      <div class="process-item">
+        <span class="process-num mono">05</span>
+        <div><h3>التسليم</h3><p>أسلم الملفات النهائية بالمقاسات والصيغ المناسبة للاستخدام.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS (empty state) ============ -->
+<section class="testimonials" id="testimonials">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><span class="hex">06</span> / آراء العملاء</span>
+      <h2>هذا القسم قيد التحديث</h2>
+    </div>
+
+    <div class="testi-empty" data-reveal>
+      <span class="mono-badge">0 تقييمات — قريبًا</span>
+      <h3>لسا ما في تقييمات منشورة هون</h3>
+      <p>بجمّع آراء عملائي تباعًا وحطها هون. إذا اشتغلت معي من قبل، رأيك بيساعد غيرك ياخد قراره.</p>
+      <a href="#contact" class="btn btn-primary">شاركني تقييمك</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div data-reveal>
+        <span class="eyebrow"><span class="hex">07</span> / تواصل معي</span>
+        <h2 class="contact-copy-title">هل لديك مشروع يحتاج إلى تصميم؟</h2>
+        <p class="contact-copy" style="color:var(--ink-muted); font-size:17px; max-width:50ch; margin-bottom:34px;">إذا كنت تبحث عن مصمم جرافيك لإنشاء إعلانات أو محتوى احترافي للسوشيال ميديا، يسعدني معرفة تفاصيل مشروعك ومساعدتك في اختيار الحل المناسب.</p>
+        <div class="contact-actions">
+          <a href="https://wa.me/972594303949" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.42 1.26 4.86L2 22l5.3-1.39a9.9 9.9 0 0 0 4.74 1.2h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm0 18.2h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.14.82.84-3.06-.2-.31a8.23 8.23 0 0 1-1.26-4.36c0-4.55 3.7-8.25 8.27-8.25 2.21 0 4.28.86 5.84 2.42a8.2 8.2 0 0 1 2.42 5.84c0 4.55-3.71 8.23-8.26 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.24-.02-.37.11-.5.11-.11.25-.29.37-.44.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.06 0 1.22.88 2.4 1.01 2.56.12.17 1.74 2.68 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28Z"/></svg>
+            راسلني على واتساب
+          </a>
+          <a href="mailto:makfgd@gmail.com" class="btn btn-ghost">
+            راسلني بالإيميل
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-card" data-reveal>
+        <div class="contact-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+          <div class="txt"><span>البريد الإلكتروني</span><a href="mailto:makfgd@gmail.com">makfgd@gmail.com</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5c0 9 7 16 16 16l3-4-6-3-2 2c-2.5-1.2-4.8-3.5-6-6l2-2-3-6-4 0Z"/></svg></div>
+          <div class="txt"><span>واتساب</span><a href="https://wa.me/972594303949" target="_blank" rel="noopener">972594303949+</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z"/><path d="M3 12h18M12 3c2.5 2.5 4 5.6 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.6-4-9s1.5-6.5 4-9Z"/></svg></div>
+          <div class="txt"><span>التخصص</span><strong>Graphic Designer</strong></div>
+        </div>
+
+        <div class="social-row">
+          <a href="https://www.instagram.com/m_ferwana98/" target="_blank" rel="noopener" class="social-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg> إنستغرام</a>
+          <a href="https://www.facebook.com/m.ferwana23" target="_blank" rel="noopener" class="social-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h3l1-3h-4V9c0-.6.4-1 1-1Z"/></svg> فيسبوك</a>
+          <a href="https://x.com/m_ferwana98" target="_blank" rel="noopener" class="social-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l16 16M20 4L4 20"/></svg> X</a>
+          <a href="https://www.behance.net/makfgd2076" target="_blank" rel="noopener" class="social-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h6M3 7v10h5.5a3 3 0 0 0 0-6H3M14 12h7M14 12a4 4 0 0 1 7-2.5M14 12a4 4 0 0 0 7 2.5"/></svg> Behance</a>
+          <a href="https://www.linkedin.com/in/%D9%85%D8%AD%D9%85%D8%AF-%D9%81%D8%B1%D9%88%D8%A7%D9%86%D8%A9-203537279/" target="_blank" rel="noopener" class="social-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 13v4"/></svg> LinkedIn</a>
+          <a href="https://mostaql.com/u/MohammedFerwana" target="_blank" rel="noopener" class="social-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 9h6v6H9z"/></svg> مستقل</a>
+          <a href="https://khamsat.com/user/%D9%85%D8%AD%D9%85%D8%AF-%D8%A3%D8%B3%D8%B9%D8%AF%D9%81%D8%B1%D9%88%D8%A7%D9%86%D8%A9" target="_blank" rel="noopener" class="social-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18"/></svg> خمسات</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap footer-inner">
+    <a href="#top" class="brand">
+      <img src="assets/logo.jpg" alt="شعار محمد فروانة" style="height:30px;">
+    </a>
+    <div class="fmeta">© <span id="year"></span> محمد أسعد فروانة — جميع الحقوق محفوظة</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/972594303949" target="_blank" rel="noopener" class="wa-float" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.42 1.26 4.86L2 22l5.3-1.39a9.9 9.9 0 0 0 4.74 1.2h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm0 18.2h-.01a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.14.82.84-3.06-.2-.31a8.23 8.23 0 0 1-1.26-4.36c0-4.55 3.7-8.25 8.27-8.25 2.21 0 4.28.86 5.84 2.42a8.2 8.2 0 0 1 2.42 5.84c0 4.55-3.71 8.23-8.26 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.65.81-.79.97-.15.17-.29.19-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.24-.02-.37.11-.5.11-.11.25-.29.37-.44.12-.14.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.36-.77-1.86-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.06 0 1.22.88 2.4 1.01 2.56.12.17 1.74 2.68 4.24 3.75.59.26 1.05.41 1.41.53.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28Z"/></svg>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // mobile menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // reveal on scroll
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => io.observe(el));
+
+  // portfolio filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const workCards = document.querySelectorAll('.work-card');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      workCards.forEach(card => {
+        const cats = card.dataset.cat.split(' ');
+        const show = f === 'الكل' || cats.includes(f);
+        card.hidden = !show;
+      });
+    });
+  });
+
+  // nav background on scroll
+  const nav = document.querySelector('.site-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      nav.style.borderBottomColor = 'rgba(255,255,255,.14)';
+    } else {
+      nav.style.borderBottomColor = 'rgba(255,255,255,.05)';
+    }
+  });
+</script>
+
+</body>
+</html>
